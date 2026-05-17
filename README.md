@@ -15,51 +15,62 @@
     <li>Secure access to account after login</li>
 </ul>
 
+# Python Backend
+
+This backend has been migrated from Express/Node.js to Python Flask while keeping the same API routes and response shapes.
+
+```shell
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+python app.py
+```
+
+Required environment variables:
+
+```env
+PORT=4000
+MONGO_CONNECTION_URL=your-mongodb-connection-string
+MONGO_DB_NAME=test
+JWT_SECRET=dakshal
+```
+
+API routes:
+
+- `GET /`
+- `GET /user`
+- `POST /user/register`
+- `POST /user/login`
+- `GET /note`
+- `POST /note/create`
+- `PATCH /note`
+- `DELETE /note`
+
+For note routes, pass the login token in the `Authorization` header, matching the previous Node.js backend behavior.
+
 # Installation
 
-<ol>
-    <li>Clone the repository:</li>
-</ol>
+Clone the repository:
 
 ```shell
 git clone https://github.com/dakshal-d/MemoryChronicles.git
 ```
 
-<ol start="2">
-    <li>Clone the backend repository:</li>
-</ol>
+Clone the backend repository:
 
 ```shell
 git clone https://github.com/dakshal-d/MemoryChronicles-backend.git
 ```
-<ol start="3">
-    <li>Install client dependencies:</li>
-</ol>
+
+Install backend dependencies and start the server:
 
 ```shell
-npm install
-```
-<ol start="4">
-    <li>Configure environment variables:<br/>
-      Create a .env file in the server directory and add the following:
-    </li>
-</ol>
-
-```shell
-PORT=3000(any available port)
-MONGODB_URI=your-mongodb-connection-string
-```
-<ol start="5">
-    <li>Start the development server:</li>
-</ol>
-
-```shell
-npm run start
+pip install -r requirements.txt
+python app.py
 ```
 
-<ol start="6">
-    <li>Open your browser and navigate to <a href="http://localhost:3000">http://localhost:3000</a> to use the application.</li>
-</ol>
+Open your browser and navigate to <a href="http://localhost:4000">http://localhost:4000</a> to use the API.
+
 <h2 id="usage">Usage</h2>
 <ol>
     <li>Register or log in to your account.</li>
@@ -70,9 +81,9 @@ npm run start
 # Technologies Used
 <ul>
     <li>MongoDB</li>
-    <li>Express</li>
+    <li>Flask</li>
     <li>React</li>
-    <li>Node.js</li>
+    <li>Python</li>
     <li>Tailwind CSS</li>
 </ul>
 
